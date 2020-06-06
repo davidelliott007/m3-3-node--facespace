@@ -19,7 +19,7 @@ There is a file `/data/users.js` that contains an array of `user`s. Each user lo
   name: 'Fletcher',
   friends: ['1006', '1007', '1009'], // array of the ids of user's friends
   avatarUrl: '/images/profile-pics/000003.jpg',
-},
+},`
 ```
 
 > ### About the CSS
