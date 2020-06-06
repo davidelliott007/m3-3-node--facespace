@@ -2,5 +2,15 @@
 
 <div class="profile-page">
     <%= user.name %>
+    Friends:
+    <% friends.forEach(friend => { %>
+       <h3>
+           <%= friend.name %>
+    </h3> 
+           
+        
+        
+        <% }); %>
+
 </div>
 <%- include ('../partials/footer') %>

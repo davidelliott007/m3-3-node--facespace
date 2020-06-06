@@ -28,7 +28,11 @@ const handleUserPage = (req, res) =>
   let single_user = users.find(element => element._id === userParam);
 
 
-  res.status(200).render('pages/profile', {user:single_user});
+
+  let friends = users.filter( user => single_user.friends.includes(user._id)
+  );
+
+  res.status(200).render('pages/profile', {user:single_user, friends: friends});
 }
 
 
