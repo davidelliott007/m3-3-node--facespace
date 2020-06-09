@@ -64,8 +64,16 @@ const handleName = (req, res) =>
 
 const handleSignIn = (req, res) => 
 {
-  res.status(200).render('pages/signon', {currentUser:currentUser});
 
+  if (currentUser == undefined)
+  {
+  res.status(200).render('pages/signon', {currentUser:currentUser});
+  }
+  else
+  {
+    res.status(200).render('pages/homepage', {users:users, currentUser:currentUser});
+
+  }
 }
 
 
