@@ -14,10 +14,21 @@
     <h3> <%= user.name %>'s Friends </h3>
 
     <ul class="profile-page__friends--list">
+
+        <%if (friends.length < 1) { %>
+            <h2>
+                No friends found.... maybe you should make some friends, <%=user.name%>.
+            </h2>
+                
+        <%}%>
+
         <% friends.forEach(friend => { %>
         <li class="friend">
+            <a href="/users/<%= friend._id %>">
             <img src="<%= friend.avatarUrl %>" alt="">
             <p> <%= friend.name %> </p>
+            </a>
+
         </li>
         <% }); %>
     </ul>

@@ -10,7 +10,10 @@
         <% users.forEach(user => { %>
         
             <li class="homepage__all--user">
-                <img src="<%=user.avatarUrl%>" alt="User Profile Pic">
+
+                <a href="/users/<%= user._id %>">
+                    <img src="<%= user.avatarUrl %>" alt="Picture of <%= user.name %>">
+                    </a>
             </li>
             <% }); %>
             
