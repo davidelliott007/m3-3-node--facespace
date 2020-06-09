@@ -9,7 +9,26 @@
 }
 .homepage__all--user {
   margin: 0 4px;
+  position: relative;
 }
+
+.homepage__all--user .FriendLabel 
+{
+  background:  #cc550097;
+  /* background: rgba(255, 255, 255, 0.6); */
+  color: #fff;
+  position: absolute;
+  top: 22px;
+  left: 28px;
+  text-align: center;
+  font-weight: 200;
+  width: calc(100% - 4px);
+  text-decoration: none;
+  clip-path: polygon(18% 13%, 82% 13%, 98% 80%, 0 81%);
+  transform: rotate(45deg);
+
+}
+
 
 /* .homepage__all--user:hover {
   margin: 0 4px;

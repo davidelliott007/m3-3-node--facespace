@@ -7,16 +7,24 @@
     <ul class="homepage__all">
 
 
-        <% users.forEach(user => { %>
-        
-            <li class="homepage__all--user">
+        <% users.forEach(user => {
+            %>
 
-                <a href="/users/<%= user._id %>">
-                    <img src="<%= user.avatarUrl %>" alt="Picture of <%= user.name %>">
-                    </a>
-            </li>
-            <% }); %>
-            
+        <li class="homepage__all--user">
+
+            <a href="/users/<%= user._id %>">
+                <img src="<%= user.avatarUrl %>" alt="Picture of <%= user.name %>">
+                <% 
+                    if (currentUser != undefined)
+                    {
+                        if (currentUser.friends.includes(user._id))
+                        {%>
+                <div class="FriendLabel">Friend</div>
+                <% } } %>
+            </a>
+        </li>
+        <% }); %>
+
     </ul>
 </div>
 <%- include ('../partials/footer') %>
