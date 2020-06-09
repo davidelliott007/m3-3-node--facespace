@@ -5,7 +5,7 @@ const users = [
     friends: ['1007', '1008', '1009'],
     avatarUrl: '/images/profile-pics/000001.jpg',
   },
-  {
+  { 
     _id: '1007',
     name: 'Maisy',
     friends: ['1006', '1008', '1009'],

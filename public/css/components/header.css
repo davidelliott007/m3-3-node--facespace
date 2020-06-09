@@ -8,3 +8,13 @@
 .header h1 {
   color: #fff;
 }
+
+.header .signin {
+  color: #fff;
+  margin-left: auto;
+  font-size: 24px;
+  font-family: 'Teko', sans-serif;
+  background-color: Transparent;
+  border: none;
+  text-decoration: none;
+}

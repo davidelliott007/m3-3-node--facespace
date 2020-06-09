@@ -2,12 +2,13 @@
 
 const express = require('express');
 const morgan = require('morgan');
+const envVars = require('dotenv').config();
+
 
 const { users } = require('./data/users');
 
 
-let currentUser = {};
-
+let currentUser;
 // declare the 404 function
 const handleFourOhFour = (req, res) => {
   res.status(404).send("I couldn't find what you're looking for.");
@@ -16,7 +17,8 @@ const handleFourOhFour = (req, res) => {
 
 const handleHomePage = (req, res) => 
 {
-  res.status(200).render('pages/homepage', {users:users});
+   console.log(currentUser);
+  res.status(200).render('pages/homepage', {users:users, currentUser:currentUser});
 }
 
 const handleUserPage = (req, res) => 
@@ -27,12 +29,10 @@ const handleUserPage = (req, res) =>
 
   let single_user = users.find(element => element._id === userParam);
 
-
-
   let friends = users.filter( user => single_user.friends.includes(user._id)
   );
 
-  res.status(200).render('pages/profile', {user:single_user, friends: friends});
+  res.status(200).render('pages/profile', {user:single_user, friends: friends, currentUser:currentUser});
 }
 
 const handleName = (req, res) => 
@@ -49,10 +49,11 @@ const handleName = (req, res) =>
   }
   else
   {
+    currentUser = single_user;
     let friends = users.filter( user => single_user.friends.includes(user._id)
     );
   
-    res.status(200).render('pages/profile', {user:single_user, friends: friends});
+    res.status(200).render('pages/profile', {user:single_user, friends: friends, currentUser:currentUser});
   
   }
 }
@@ -63,7 +64,7 @@ const handleName = (req, res) =>
 
 const handleSignIn = (req, res) => 
 {
-  res.status(200).render('pages/signon');
+  res.status(200).render('pages/signon', {currentUser:currentUser});
 
 }
 
@@ -76,10 +77,10 @@ express()
   .use(express.urlencoded({ extended: false }))
   .set('view engine', 'ejs')
 
+  // .set('port', process.env.PORT || 8000);
     // endpoints
 
   .get("/", handleHomePage)
-
 
   .get("/users/:user", handleUserPage)
 
@@ -90,5 +91,5 @@ express()
   // a catchall endpoint that will send the 404 message.
   .get('*', handleFourOhFour)
 
-  .listen(8000, () => console.log('Listening on port 8000'));
+  .listen(80, () => console.log('Listening on port 8000'));
 
