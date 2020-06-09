@@ -16,5 +16,9 @@
   font-family: 'Teko', sans-serif;
   background-color: Transparent;
   border: none;
+}
+
+.header a
+{
   text-decoration: none;
 }

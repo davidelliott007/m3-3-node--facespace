@@ -7,7 +7,11 @@
 </head>
 <body>
   <header class="header">
-    <h1 class='site-title'>Facespace</h1>
+    <a href="/">
+      <h1 class='site-title'>Facespace</h1>
+
+    </a>
+
     <% if (currentUser != undefined) { %>
       <a href="/getname?firstName=<%=currentUser.name%>" class="signin"><%=currentUser.name%></a>
     <% } 
