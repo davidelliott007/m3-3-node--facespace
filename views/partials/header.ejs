@@ -13,7 +13,7 @@
     </a>
 
     <% if (currentUser != undefined) { %>
-      <a href="/getname?firstName=<%=currentUser.name%>" class="signin"><%=currentUser.name%></a>
+      <a href="/getname?firstName=<%=currentUser.name%>" class="signin">Howdy, <%=currentUser.name%></a>
     <% } 
     else 
     {%>
